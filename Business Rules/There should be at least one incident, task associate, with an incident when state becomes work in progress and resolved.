@@ -1,0 +1,17 @@
+Write BR for thaton incident table.
+
+Condition: State [Changes To] Work In Progress or Resolved
+
+Script:-    
+ 
+
+(function executeRule(current, previous /*null when async*/) {
+// Add your code here
+var incTask = new GlideRecord('incident_task');
+incTask.addQuery('parent', current.sys_id);
+incTask.query();
+if(!incTask.next()){
+gs.addErrorMessage('Not allowed');
+current.setAbortAction(true);
+}
+})(current, previous); 
