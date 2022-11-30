@@ -1,0 +1,28 @@
+Qualifier script:-   Do a dictionary override for the Assignment Group field
+javascript: new BackfillAssignmentGroups().BackfillAssignmentGroup(current.assigned_to);
+
+Script Include :-
+
+var BackfillAssignmentGroups = Class.create();
+BackfillAssignmentGroups.prototype =
+Object.extendsObject(AbstractAjaxProcessor, {
+BackfillAssignmentGroup: function(getag) {
+var gp = ' ';
+var a = getag;
+//return all groups if the assigned_to value is empty
+if (!a)
+return;
+//sys_user_grmember has the user to group relationship
+var grp = new GlideRecord('sys_user_grmember');
+grp.addQuery('user', a);
+grp.query();
+while (grp.next()) {
+gp = grp.group + ',' + gp;
+}
+// return Groups where assigned to is in those groups we use IN
+for lists
+return 'sys_idIN' + gp;
+},
+type: 'BackfillAssignmentGroups'
+});  
+ 
