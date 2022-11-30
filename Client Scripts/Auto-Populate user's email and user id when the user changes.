@@ -1,0 +1,39 @@
+Client Script :-
+function onChange(control, oldValue, newValue, isLoading) {
+if (isLoading) {
+return;
+}
+if(newValue == ''){
+g_form.clearValue('u_vip_email');
+g_form.clearValue('u_user_id');
+}
+var ga = new GlideAjax('checkRecords');
+ga.addParam('sysparm_name', "getUserDetails");
+ga.addParam('sysparm_userID', g_form.getValue('u_reference_1'));
+ga.getXMLAnswer(function(answer){
+var parser = JSON.parse(answer);
+alert(answer);
+g_form.setValue('u_vip_email', parser.email);
+g_form.setValue('u_user_id', parser.user_name);
+});
+//Type appropriate comment here and begin script below
+}
+
+Script Include :-
+var checkRecords = Class.create();
+checkRecords.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+getUserDetails: function(){
+var id = this.getParameter('sysparm_userID');
+var obj = {};
+var gr = new GlideRecord('sys_user');
+gr.addQuery('sys_id', id);
+
+gr.query();
+if(gr.next()){
+obj["user_name"] = gr.user_name.toString();
+obj["email"] = gr.email.toString();
+}
+return JSON.stringify(obj);
+},
+type: 'checkRecords'
+});
