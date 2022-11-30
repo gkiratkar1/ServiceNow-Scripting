@@ -1,1 +1,4 @@
 gs.getUser().getRecord().getDisplayValue("internal_integration_user"); //enter any field name from sys_user table.
+
+//This code will work for the current session only. If you change the value of a field, then it will not give you the new value.
+//To get the new value you need to log out the user and log in again.
