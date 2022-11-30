@@ -1,0 +1,23 @@
+Write onLoad Client Script. (Using getReference in Client Script).
+Script:-
+
+function onLoad() {
+
+    //Type appropriate comment here, and begin script below
+
+    var caller = g_form.getReference('caller_id',doAlert);
+
+ 
+
+    function doAlert(caller) { //reference is passed into callback as first arguments
+
+                        if(caller.vip=='true'){
+
+        alert('Caller ' + caller.email + ' is VIP');
+
+                        }
+
+    }
+
+}
+ 
