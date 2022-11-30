@@ -1,0 +1,41 @@
+Write onChange Client Script.
+OnChange of Priority
+It will work both for onLoad and onChange.
+If you don’t want it be run on onLoad then remove the code from ‘if (isLoading || newValue === '')’.
+Script :-  
+
+
+function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+
+    if (isLoading || newValue === '') {
+
+        var element = g_form.getElement('number');
+
+        if (g_form.getValue('priority') == '1') {
+
+            element.style.backgroundColor = "red";
+
+        }
+
+        return;
+
+    }
+   //Type appropriate comment here, and begin script below
+
+    element = g_form.getElement('number');
+
+    if (newValue == '1') {
+
+        element.style.backgroundColor = "red";
+
+ 
+
+    }else{
+
+                        element.style.backgroundColor = "white";
+
+        }
+
+ 
+
+}
