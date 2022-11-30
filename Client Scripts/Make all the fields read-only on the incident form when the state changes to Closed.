@@ -1,0 +1,12 @@
+Write onChange Client script
+Field name: State 
+
+if(newValue=='7'){  //Closed state value
+var fields = g_form.getEditableFields();
+
+for (var x = 0; x < fields.length; x++) {
+
+    g_form.setReadOnly(fields[x], true);
+
+}  
+}
