@@ -1,0 +1,1 @@
+gs.getUser().getRecord().getDisplayValue("internal_integration_user"); //enter any field name from sys_user table.
