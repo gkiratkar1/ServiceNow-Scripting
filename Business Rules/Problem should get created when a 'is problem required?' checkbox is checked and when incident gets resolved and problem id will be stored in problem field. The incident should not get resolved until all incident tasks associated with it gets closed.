@@ -1,0 +1,23 @@
+Question :-Problem should get created when a 'is problem required?' checkbox is checked and when incident gets resolved and problem id will be stored in problem field. The incident should not get resolved until all incident tasks associated with it gets closed.
+
+
+Create before insert/update Business Rule on incident table as below :-
+
+(function executeRule(current, previous /*null when async*/) {
+//check if there are any incident tasks open
+var task = new GlideRecord("incident_task");
+task.addEncodedQuery("stateIN-5,1,2");
+task.query();
+if(task.next()) {
+gs.addErrorMessage("You cannot close incident if incident tasks are still open.");
+current.setAbortAction(true);
+}
+else
+{
+var gr = new GlideRecord("problem");
+gr.initialize();
+gr.short_description=current.short_description;
+var prob_id = gr.insert();
+current.problem_id=prob_id;
+}
+})(current, previous);  
