@@ -1,0 +1,11 @@
+Need to create defined relationships
+Navigate to Relationship
+Applies to Table - incident
+Queries from the table - problem
+
+Script:-   
+
+(function refineQuery(current, parent) {
+ // Add your code here, such as current.addQuery(field, value);
+ current.addQuery('sys_id', parent.problem_id);
+})(current, parent); 
