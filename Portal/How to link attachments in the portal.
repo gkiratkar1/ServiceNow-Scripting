@@ -1,0 +1,13 @@
+/* Create an SP widget for that as below.
+Copy the below code and paste that into the ‘Body HTML template’.
+Copy past your attachment sys_id in the below code.  */
+
+<div>
+<!-- your widget template -->
+  <p><a href="/sys_attachment.do?sys_id=530d1c44300ecd90b04a5fe3aef1f80b" title="Click Here to Download the Attachment">Click Here to Download the Template</a></p>
+</div>  
+
+/* Create a variable of type ‘Custom’. Before Quebec, the custom type was known as ‘Macro’.
+Select that newly created widget in the widget field.
+Now it will appear in the portal.
+If you click on that then the document with that sys ID will download. */
