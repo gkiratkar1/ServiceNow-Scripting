@@ -1,0 +1,8 @@
+Write a onLoad Client Script:-   
+
+function onLoad(){
+if(!g_user.hasRoleExactly('admin') || !g_user.hasRoleExactly('incident_manager')){
+g_form.setReadOnly('assignment_group', true);
+g_form.setReadOnly('assigned_to', true);
+}
+}  
