@@ -1,0 +1,11 @@
+/* Goto the sys_user_group table
+Scroll down and click on any field from the related list of group members and click on the list control
+Writedown below code in omit new condition and Omit Edit condition */
+
+if (gs.getUserID()== '62826bf03710200044e0bfc8bcbe5df1') {  //write sys_id of the users for those you want to give access to edit/add
+  answer =false;
+ } else {
+  answer =true;
+ }  
+ 
+ // Make sure that 'Omit new button' and 'Omit edit button' checkbox is false
