@@ -1,0 +1,10 @@
+We can take a help of BR on sc_task table. It will copy attachment from RITM to task and Request
+
+When to run : After insert
+
+(function executeRule(current, previous /*null when async*/ ) {
+
+    GlideSysAttachment.copy('sc_req_item', current.request_item, 'sc_task', current.sys_id);
+    GlideSysAttachment.copy('sc_req_item', current.request_item, 'sc_request', current.request);
+
+})(current, previous);
